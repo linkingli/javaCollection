@@ -10,6 +10,8 @@ import com.google.common.hash.*;
 import com.google.common.reflect.*;
 import com.google.common.util.concurrent.*;
 import com.sun.istack.internal.Nullable;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.swing.event.ChangeEvent;
 import java.io.IOException;
@@ -27,8 +29,9 @@ import static com.google.common.hash.Hashing.md5;
 
 
 public class GuavaMapSetList {
+    private static Logger logger= LoggerFactory.getLogger(GuavaMapSetList.class);
     public static void main(String[] args) {
-        //map();
+        map();
         //mapInverse();
         //table();
         //mapClassTypeAndObject();
@@ -40,7 +43,14 @@ public class GuavaMapSetList {
         //hashCodeAndBloomFilter();
         //eventBus();
         //reflect();
-
+/*        List<String> strings = Arrays.asList("haha", "asdas", "hgrtfh");
+        ImmutableList immutableList = ImmutableList.of("wyp", "good");
+        List list = new ArrayList();
+        list.add(1);
+        list.add(2);
+        ImmutableList GOOGLE_IMMUTABLE = ImmutableList
+                . builder().addAll(list).add("add").addAll(strings).build();
+        System.out.println(GOOGLE_IMMUTABLE);*/
 
     }
 
@@ -415,8 +425,22 @@ public class GuavaMapSetList {
         System.out.println(teas);
 
         ImmutableMultimap<List<com.example.demo.collection.ObjectToMap.tea>, Integer> build =
-                ImmutableMultimap.<List<tea>, Integer>builder().put(teas, integer).build();
+                ImmutableMultimap.<List<tea>, Integer>builder()
+                        .put(teas, integer).build();
         ImmutableList.Builder<Object> add = ImmutableList.builder().add(build.keys());
-        System.out.println(add);
+
+
+
+        ImmutableList<com.example.demo.collection.ObjectToMap.tea> list = ImmutableList.<tea>builder()
+                .add(new tea(1,"1","1"))
+                .add(new tea(2,"2","2"))
+                .build();
+        System.out.println(list);
+
+        ArrayListMultimap<Object, Object> objectObjectArrayListMultimap = ArrayListMultimap.create();
+        objectObjectArrayListMultimap.put("1",tea1);
+       System.out.print(objectObjectArrayListMultimap.get("1"));
+
+
     }
 }
