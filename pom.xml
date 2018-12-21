@@ -41,6 +41,13 @@
 			<artifactId>guava</artifactId>
 			<version>25.1-jre</version>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.alibaba.csp/sentinel-core -->
+		<dependency>
+			<groupId>com.alibaba.csp</groupId>
+			<artifactId>sentinel-core</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+
 
 	</dependencies>
 		
